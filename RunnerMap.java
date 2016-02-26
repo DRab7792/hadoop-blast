@@ -122,10 +122,11 @@ public class RunnerMap extends Mapper<String, String, IntWritable, Text> {
 				Write your code to get localInputFile, outFile,
 				stdOutFile and stdErrFile
 			**/
-		localInputFile = value + File.separator + key;
-		outFile = outputDir + File.separator + key;
-		stdOutFile = outputDir + File.separator + key; //What is the difference between this and outFile?
-		stdErrFile = outputDir + File.separator + "err" + File.separator + key;
+		localInputFile = workingDir + File.separator + key;
+		outFile = workingDir + File.separator + "out." + key;
+		stdOutFile = workingDir + File.separator + "stdOut." + key; 
+		stdErrFile = workingDir + File.separator + "err." + key;
+		fileNameOnly = key;
 
 		// download the file from HDFS
 		Path inputFilePath = new Path(value);
